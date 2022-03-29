@@ -132,16 +132,17 @@ const statePopulation = {
   utah: 50,
   california: 120,
   texas: 110,
-  arizona: 90,
+  arizona: 90
 }
 
 const totalPopulation = obj => {
-  let {utah, california, texas, arizona} = statePopulation
-  sum = utah + california + texas + arizona 
+  sum = 0
+  for(const key in obj) {  
+    sum += statePopulation[key]
+  }
   return sum
-
 }
-totalPopulation(statePopulation)
+console.log(totalPopulation(statePopulation))
 
 //////////////////////////// PROBLEM 9 ////////////////////////////
 
@@ -155,19 +156,20 @@ totalPopulation(statePopulation)
 
 //Code Here
 const dietFacts = {
-  carbs: 'bad',
+  carb: 'bad',
   fat: 'Sometimes good',
   protein: 'Yum!'
 }
 
 const ingredients = obj => {
   let dietFactsArr = []
-  let(carbs,fat,protein) = dietFacts
-  dietFactsArr.push(carbs,fat,protein)
+  for(const key in obj) {
+    console.log(key)
+    dietFactsArr.push(obj[key]) 
+  }
   return dietFactsArr
 }
-
-
+console.log(ingredients(dietFacts))
 //////////////////////////// PROBLEM 10 ////////////////////////////
 // Do not edit the code below.
 var user = {
