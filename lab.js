@@ -6,8 +6,8 @@
 
 //Code here
 const me = new Object();
-me.name = 'Spencer'
-me.age = 27
+me.name = 'Spencer';
+me.age = 27;
 
 
 //////////////////////////// PROBLEM 2 ////////////////////////////
@@ -29,7 +29,7 @@ dog.goodBoy = true
 /* Print out the name of the dog you created in problem 2 using dot-notation. */
 
 //Code here
-console.log(dog.name)
+// console.log(dog.name)
 
 
 
@@ -37,7 +37,7 @@ console.log(dog.name)
 /* Print out the color of the dog you created in problem 2 using bracket-notation. */
 
 //Code here
-console.log(dog['color'])
+// console.log(dog['color'])
 
 
 //////////////////////////// PROBLEM 5 ////////////////////////////
@@ -52,6 +52,7 @@ const favoriteThings = {
   food: 'Hawaiian',
   person: 'My wife',
   book: 'Hunger Games',
+  movie: 'Lord of the Rings',
   holiday: 'Halloween'
 }
 
@@ -72,10 +73,6 @@ favoriteThings.show = 'Modern Family'
 favoriteThings.food = 'Chicken Nuggets'
 favoriteThings.book = 'Harry Potter'
 
-for(const attribute in favoriteThings) {
-  console.log(`My favorite things ${attribute} is ${favoriteThings[attribute]}`)
-}
-
 //////////////////////////// PROBLEM 6 ////////////////////////////
 
 // Do not edit the code below.
@@ -92,7 +89,10 @@ var carDetails = {
 */
 
 //Code Here
-
+let {color} = carDetails
+let {make} = carDetails
+let {model} = carDetails
+let {year} = carDetails
 
 
 //////////////////////////// PROBLEM 7 ////////////////////////////
@@ -102,15 +102,19 @@ var carDetails = {
   Use object destructuring to save the object properties to new variables. 
   The property names are firstName, lastName, and title.
 */
-
+const person = {
+  firstName: "Spencer",
+  lastName: "DeBrine",
+  title: "Mr."
+}
 function greeting( obj ) {
   //Code Here
+  let {firstName, lastName, title} = person
   
   // Do not edit the code below.
   return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
   // Do not edit the code above.
 }
-
 
 
 //////////////////////////// PROBLEM 8 ////////////////////////////
@@ -124,8 +128,20 @@ function greeting( obj ) {
 */
 
 //Code Here
+const statePopulation = {
+  utah: 50,
+  california: 120,
+  texas: 110,
+  arizona: 90,
+}
 
+const totalPopulation = obj => {
+  let {utah, california, texas, arizona} = statePopulation
+  sum = utah + california + texas + arizona 
+  return sum
 
+}
+totalPopulation(statePopulation)
 
 //////////////////////////// PROBLEM 9 ////////////////////////////
 
@@ -138,7 +154,18 @@ function greeting( obj ) {
 */
 
 //Code Here
+const dietFacts = {
+  carbs: 'bad',
+  fat: 'Sometimes good',
+  protein: 'Yum!'
+}
 
+const ingredients = obj => {
+  let dietFactsArr = []
+  let(carbs,fat,protein) = dietFacts
+  dietFactsArr.push(carbs,fat,protein)
+  return dietFactsArr
+}
 
 
 //////////////////////////// PROBLEM 10 ////////////////////////////
@@ -160,7 +187,11 @@ var user = {
 */
 
 //Code Here
-
+let {name: newName, email} = user
+newName = 'Bryan G. Smith'
+email = 'bryan.smith@devmounta.in'
+// console.log(newName)
+// console.log(user.name)
 
 //////////////////////////// PROBLEM 11 ////////////////////////////
 /*
@@ -168,7 +199,7 @@ var user = {
 */
 
 //Code Here
-
+delete user.age
 
 //////////////////////////// PROBLEM 12 ////////////////////////////
 /*
@@ -178,8 +209,16 @@ var user = {
 */
 
 //Code here
+class Cat {
+  constructor (name, age, color) {
+    this.name = name
+    this.age = age
+    this.color = color
+  }  
+}
 
-
+const cat = new Cat('Oreo', 10, 'Black')
+// console.log(cat.name)
 
 //////////////////////////// PROBLEM 13 ////////////////////////////
 /*
@@ -190,6 +229,19 @@ var user = {
 */
 
 //Code here
+class Wizard {
+  constructor (name, age, favoriteSpell) {
+    this.name = name
+    this.age = age
+    this.spell = favoriteSpell
+  }
+  castSpell() {
+    console.log(`${this.name} has cast ${this.spell}.`)
+  }
+}
+const merlin = new Wizard ("Merlin",9000,"Fireball")
+
+// merlin.castSpell()
 
 //////////////////////////// PROBLEM 14 ////////////////////////////
 /*
@@ -215,7 +267,24 @@ var user = {
 */
 
 //Code Here
-
+class Phone {
+  constructor(brand, model, storage, color, price, sold) {
+    this.brand = brand;
+    this.model = model;
+    this.storage = storage;
+    this.color = color;
+    this.price = price;
+    this.sold = false
+  }
+  sell() {
+    this.sold = true
+    console.log(`${this.brand} ${this.model} has been sold.`)
+  }
+  changePrice(newPrice) {
+    this.price = newPrice
+    console.log(`${this.brand} ${this.model} is now listed at ${this.price}`)
+  }
+}
   
 /*
     Next make three new phone instances using your class.
@@ -228,7 +297,9 @@ var user = {
 */
 
 //Code Here
-
+const phone1 = new Phone('Apple','iPhone 60', '10 TB', 'Red', 2000)
+const phone2 = new Phone('Samsung','Galaxy 60', '25 TB', 'Galaxy', 1599)
+const phone3 = new Phone('Blackberry','Mountain Range 1', '10 TB', 'GLitter Brown', 3000)
 /* 
   Call the changePrice function on one of your phones, 
   don't forget to pass in a new price 
@@ -237,7 +308,7 @@ var user = {
 */ 
 
 //Code Here 
-
+// phone3.changePrice(2500)
 
 /*
   Now call the sell method on one of your other phone objects
@@ -246,7 +317,8 @@ var user = {
 */
 
 //Code Here 
-
+// phone2.sell()
+// console.log(phone2.sold)
 
 //////////////////////////// PROBLEM 15 ////////////////////////////
 
@@ -265,8 +337,8 @@ const colors = {
 //do not edit this object
 
 //Code Here 
-
-
+const colorsCopy = {...colors}
+// console.log(colorsCopy)
 
 /*
  Now use the spread operator to combine the following 2 objects into one. 
@@ -293,7 +365,8 @@ const shippingInfo = {
 //do not edit the objects above
 
 //Code Here
-
+const helensInfo = {...contactInfo,...shippingInfo }
+console.log(helensInfo)
 
 //Print helensInfo to see what it looks like, there should be no repeating properties.
 
